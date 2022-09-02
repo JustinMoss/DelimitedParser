@@ -19,15 +19,6 @@ namespace DelimitedParser.Infrastructure
         }
 
         /// <summary>
-        /// Parses a file into an enumerable of Person objects, using the given delimiter.
-        /// </summary>
-        /// <param name="fileName">The name of the file to parse</param>
-        /// <param name="delimiter">The delimiter used for parsing</param>
-        /// <returns>An enumerable of Person objects</returns>
-        public IEnumerable<Person> Parse(string fileName, string delimiter) =>
-            Parse(new StreamReader(fileName), delimiter);
-
-        /// <summary>
         /// Parses a text reader into an enumerable Person objects, using the given delimiter.
         /// </summary>
         /// <param name="reader">The name of the text reader to parse</param>

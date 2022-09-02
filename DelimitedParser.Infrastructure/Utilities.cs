@@ -5,6 +5,9 @@
     {
         public static string GetDelimiter(string input)
         {
+            if (input is null)
+                return " ";
+
             if (input.Contains('|'))
                 return "|";
             else if (input.Contains(','))

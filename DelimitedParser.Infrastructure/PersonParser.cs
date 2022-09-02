@@ -18,7 +18,12 @@ namespace DelimitedParser.Infrastructure
         {
             delimiter ??= Utilities.GetDelimiter(input);
 
+            if (!input.Contains(delimiter))
+                throw new ArgumentException($"Supplied delimiter '{delimiter}' was not found in the input data.");
+
             var fields = input.Split(delimiter);
+            if (fields.Length != 5)
+                throw new ArgumentException($"Found {fields.Length} fields. A person requires 5 fields.");
 
             // NOTE: Depending on requirements, we could throw an exception if any of these fields were null.
             var lastName = fields[0]?.Trim();

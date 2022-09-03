@@ -11,6 +11,12 @@
         /// </summary>
         /// <param name="entity">The object to store</param>
         void Add(T entity);
+
+        /// <summary>
+        /// Stores an object of type T.
+        /// </summary>
+        /// <param name="entity">The object to store</param>
+        void AddBatch(IEnumerable<T> enumerable);
         
         /// <summary>
         /// Retrieves all the objects of type T.

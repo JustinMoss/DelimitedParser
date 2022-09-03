@@ -69,15 +69,15 @@ namespace DelimitedParser.Infrastructure.Tests
 
             var sorted = sorter.Sort(people, nameof(Person.FavoriteColor)).ToList();
 
-            sorted[0].Should().BeEquivalentTo(person9);
+            sorted[0].Should().BeEquivalentTo(person2);
             sorted[1].Should().BeEquivalentTo(person6);
-            sorted[2].Should().BeEquivalentTo(person2);
-            sorted[3].Should().BeEquivalentTo(person7);
+            sorted[2].Should().BeEquivalentTo(person9);
+            sorted[3].Should().BeEquivalentTo(person3);
             sorted[4].Should().BeEquivalentTo(person5);
-            sorted[5].Should().BeEquivalentTo(person3);
-            sorted[6].Should().BeEquivalentTo(person8);
+            sorted[5].Should().BeEquivalentTo(person7);
+            sorted[6].Should().BeEquivalentTo(person1);
             sorted[7].Should().BeEquivalentTo(person4);
-            sorted[8].Should().BeEquivalentTo(person1);
+            sorted[8].Should().BeEquivalentTo(person8);
         }
 
         [Theory]

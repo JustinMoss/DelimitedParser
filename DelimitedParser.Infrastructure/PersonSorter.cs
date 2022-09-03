@@ -20,7 +20,7 @@ namespace DelimitedParser.Infrastructure
             {
                 nameof(Person.LastName) => items.OrderByDescending(item => item.LastName),
                 nameof(Person.DateOfBirth) => items.OrderBy(item => item.DateOfBirth),
-                nameof(Person.FavoriteColor) => items.OrderBy(item => item.FavoriteColor).ThenByDescending(item => item.LastName),
+                nameof(Person.FavoriteColor) => items.OrderBy(item => item.FavoriteColor).ThenBy(item => item.LastName),
                 _ => throw new ArgumentOutOfRangeException(fieldName + " is not a valid fieldName value.", innerException: null),
             };
     }

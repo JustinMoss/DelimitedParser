@@ -4,34 +4,45 @@ using DelimitedParser.Domain;
 using DelimitedParser.Infrastructure;
 using Microsoft.Extensions.Configuration;
 
-var config = GetConfiguration();
-var fileSettings = GetFilesConfig(config);
+try
+{
+    var config = GetConfiguration();
+    var fileSettings = GetFilesConfig(config);
 
-// NOTE: This is your composition root. In a larger, more complicated application, we'd use some sort of DI container.
-var personRepo = new PersonRepository();
-var personParser = new PersonParser();
-var personParsingReader = new PersonParsingReader(personParser);
-var personSorter = new PersonSorter();
+    // NOTE: This is your composition root. In a larger, more complicated application, we'd use some sort of DI container.
+    var personRepo = new PersonRepository();
+    var personParser = new PersonParser();
+    var personParsingReader = new PersonParsingReader(personParser);
+    var personSorter = new PersonSorter();
 
-Console.WriteLine("Reading data....");
+    Console.WriteLine("Reading data....");
 
-PopulateRepository(fileSettings, personRepo, personParsingReader);
+    PopulateRepository(fileSettings, personRepo, personParsingReader);
 
-Console.WriteLine("Data Loaded.");
-Console.WriteLine();
+    Console.WriteLine("Data Loaded.");
+    Console.WriteLine();
 
-var fullPeopleList = personRepo.GetAll();
-var colorSortedList = personSorter.Sort(fullPeopleList, nameof(Person.FavoriteColor));
-var lastNameSortedList = personSorter.Sort(fullPeopleList, nameof(Person.LastName));
-var birthSortedList = personSorter.Sort(fullPeopleList, nameof(Person.DateOfBirth));
+    var fullPeopleList = personRepo.GetAll();
+    var colorSortedList = personSorter.Sort(fullPeopleList, nameof(Person.FavoriteColor));
+    var lastNameSortedList = personSorter.Sort(fullPeopleList, nameof(Person.LastName));
+    var birthSortedList = personSorter.Sort(fullPeopleList, nameof(Person.DateOfBirth));
 
-OutputSortedData("Favorite Color, then Last Name", colorSortedList);
-OutputSortedData("Birthdate", birthSortedList);
-OutputSortedData("Last Name descending", lastNameSortedList);
+    OutputSortedData("Favorite Color, then Last Name", colorSortedList);
+    OutputSortedData("Birthdate", birthSortedList);
+    OutputSortedData("Last Name descending", lastNameSortedList);
+}
+catch (Exception ex)
+{
+    Console.WriteLine("Unexpected error occured: " + ex.Message);
+    Console.ReadLine();
+}
 
 Console.WriteLine("Press any button to close the application.");
 Console.ReadLine();
 
+
+// NOTE: These could be moved off to another file, but given the overall size of
+// this application, it feel like overkill.
 IConfigurationRoot GetConfiguration()
 {
     var configurationBuilder = new ConfigurationBuilder();
@@ -39,7 +50,7 @@ IConfigurationRoot GetConfiguration()
     return configurationBuilder.Build();
 }
 
-IEnumerable<DataFileSetting> GetFilesConfig(IConfigurationRoot config) => 
+IEnumerable<DataFileSetting> GetFilesConfig(IConfigurationRoot config) =>
     config.GetSection("DataFiles")
         .GetChildren()
         .Select(file => new DataFileSetting(file["File"], file["Delimiter"]));
@@ -60,7 +71,7 @@ void PopulateRepository(IEnumerable<DataFileSetting> fileSettings, PersonReposit
 void OutputSortedData(string displayHeader, IEnumerable<Person> list)
 {
     Console.WriteLine($"Sorted by {displayHeader}:");
-    
+
     var table = new Table(TableConfiguration.UnicodeAlt());
     table.AddColumns(Alignment.Left, Alignment.Left, "Last Name", "First Name", "Email", "Favorite Color", "Date of Birth");
 

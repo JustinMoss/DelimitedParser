@@ -6,4 +6,9 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\DelimitedParser.Domain\DelimitedParser.Domain.csproj" />
+    <ProjectReference Include="..\DelimitedParser.Infrastructure\DelimitedParser.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>

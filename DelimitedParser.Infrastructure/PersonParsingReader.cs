@@ -24,7 +24,7 @@ namespace DelimitedParser.Infrastructure
         /// <param name="reader">The name of the text reader to parse</param>
         /// <param name="delimiter">The delimiter used for parsing</param>
         /// <returns>An enumerable of Person objects</returns>
-        public IEnumerable<Person> Parse(TextReader reader, string delimiter)
+        public IEnumerable<Person> Parse(TextReader reader, string? delimiter)
         {
             var persons = new List<Person>();
 

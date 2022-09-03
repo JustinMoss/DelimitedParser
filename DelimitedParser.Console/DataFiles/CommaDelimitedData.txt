@@ -1,0 +1,5 @@
+﻿States, Alex, Alex@notanemail.com, purple, 9/16/1991
+Baker, Chrissy, Chrissy@notanemail.com, orange, 2/5/1988
+Cisco, Kathy, Kathy@notanemail.com, brown, 10/16/1959
+Lloyd, Richie, Ritchie@notanemail.com, green, 11/29/1972
+Skinner, Luanne, Luanne@notanemail.com, red, 3/12/1960

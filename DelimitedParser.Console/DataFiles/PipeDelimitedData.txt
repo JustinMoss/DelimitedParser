@@ -1,0 +1,5 @@
+﻿Carpenter | Kara | Kara@notanemail.com | green | 5/20/1985
+Corn | Diane | Diane@notanemail.com | yellow | 12/15/1979
+Allen | Kate | Kate@notanemail.com | pink | 12/2/1987
+Hocket | Mike | Mike@notanemail.com | green | 12/9/1986
+Kaiser | Diane | DKaiser@notanemail.com | purple | 2/12/1965

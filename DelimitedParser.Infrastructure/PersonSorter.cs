@@ -27,7 +27,7 @@ namespace DelimitedParser.Infrastructure
                     return items.OrderBy(item => item.FavoriteColor).ThenByDescending(item => item.LastName);
 
                 default:
-                    throw new ArgumentOutOfRangeException(nameof(fieldName), fieldName + " is not a valid fieldName value.");
+                    throw new ArgumentOutOfRangeException(fieldName + " is not a valid fieldName value.", innerException: null);
             }
         }
     }

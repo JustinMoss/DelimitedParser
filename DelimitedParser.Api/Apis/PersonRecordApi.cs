@@ -27,7 +27,7 @@ namespace DelimitedParser.Api.Apis
                    };
 
                 if (fieldName is null)
-                    return Results.Problem(sortField + " is not a valid search parameter.", statusCode: StatusCodes.Status400BadRequest);
+                    return Results.Problem($"'{sortField}' is not a valid search parameter.", statusCode: StatusCodes.Status400BadRequest);
 
                 var people = repository.GetAll();
                 if (!people.Any())

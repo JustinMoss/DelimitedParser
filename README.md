@@ -1,5 +1,7 @@
 # Assumptions
-  - The 3 input files will be a known configured location, not supplied by the user
-  - The input rows will be in the same order, as defined
-  - There is no row header in the files
-  - In the API, the 'sort by FavoriteColor' will also want last name descending
+  - Step 1:
+    - The input files will be a known configured location, not supplied by the user
+    - The input rows will always be in the same order, as defined
+    - There is no row header in the files
+  - Step 2:  
+    - The sorting endpoints will follow the same sorting logic as the Console app sorting logic

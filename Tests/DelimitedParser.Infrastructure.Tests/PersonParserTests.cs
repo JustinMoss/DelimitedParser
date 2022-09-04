@@ -1,12 +1,10 @@
 ﻿using FluentAssertions;
-using System.ComponentModel;
 
 namespace DelimitedParser.Infrastructure.Tests
 {
     public class PersonParserTests
     {
-        [Fact]
-        [DisplayName("Parse method with delimiter correctly creates a person record")]
+        [Fact(DisplayName = "Parse method with delimiter correctly creates a person record")]
         public void Parse_HappyPath1()
         {
             var personString = "last | first | email | favorite | 9/1/2022";
@@ -22,8 +20,7 @@ namespace DelimitedParser.Infrastructure.Tests
             person.DateOfBirth.ToShortDateString().Should().Be("9/1/2022");
         }
 
-        [Fact]
-        [DisplayName("Parse method without delimiter correctly creates a person record")]
+        [Fact(DisplayName = "Parse method without delimiter correctly creates a person record")]
         public void Parse_HappyPath2()
         {
             var personString = "last first email favorite 9/1/2022";
@@ -39,8 +36,7 @@ namespace DelimitedParser.Infrastructure.Tests
             person.DateOfBirth.ToShortDateString().Should().Be("9/1/2022");
         }
 
-        [Fact]
-        [DisplayName("Parse method throw ArgumentException when using incorrect delimiter")]
+        [Fact(DisplayName = "Parse method throw ArgumentException when using incorrect delimiter")]
         public void Parse_SadPath1()
         {
             var personString = "last first email favorite 9/1/2022";
@@ -52,8 +48,7 @@ namespace DelimitedParser.Infrastructure.Tests
             parse.Should().Throw<ArgumentException>().WithMessage("Supplied delimiter '|' was not found in the input data.");
         }
 
-        [Fact]
-        [DisplayName("Parse method throw ArgumentException when using invalid data")]
+        [Fact(DisplayName = "Parse method throw ArgumentException when using invalid data")]
         public void Parse_SadPath2()
         {
             var personString = "last | first | email";

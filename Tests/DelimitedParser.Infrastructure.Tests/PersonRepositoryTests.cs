@@ -1,13 +1,11 @@
 ﻿using DelimitedParser.Domain;
 using FluentAssertions;
-using System.ComponentModel;
 
 namespace DelimitedParser.Infrastructure.Tests
 {
     public class PersonRepositoryTests
     {
-        [Fact]
-        [DisplayName("Add method correctly stores the Person")]
+        [Fact(DisplayName = "Add method correctly stores the Person")]
         public void Add_HappyPath()
         {
             var person = new Person("last", "first", "email", "favorite", new DateTime(2022, 9, 1));
@@ -21,8 +19,7 @@ namespace DelimitedParser.Infrastructure.Tests
             people.First().Should().BeEquivalentTo(person);
         }
 
-        [Fact]
-        [DisplayName("AddBatch method correctly stores the enumerable of Person objects")]
+        [Fact(DisplayName = "AddBatch method correctly stores the enumerable of Person objects")]
         public void AddBatch_HappyPath()
         {
             var personList = new List<Person>
@@ -43,8 +40,7 @@ namespace DelimitedParser.Infrastructure.Tests
             people.Should().BeEquivalentTo(personList);
         }
 
-        [Fact]
-        [DisplayName("GetAll method correctly gets all the Person objects")]
+        [Fact(DisplayName = "GetAll method correctly gets all the Person objects")]
         public void GetAll_HappyPath()
         {
             var personList = new List<Person>

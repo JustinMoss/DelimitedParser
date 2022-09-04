@@ -1,13 +1,11 @@
 ﻿using DelimitedParser.Domain;
 using FluentAssertions;
-using System.ComponentModel;
 
 namespace DelimitedParser.Infrastructure.Tests
 {
     public class PersonSorterTests
     {
-        [Fact]
-        [DisplayName("Sort method correctly sorts with LastName fieldName")]
+        [Fact(DisplayName = "Sort method correctly sorts with LastName fieldName")]
         public void Sort_HappyPath1()
         {
             var person1 = new Person("last1", "first2", "email3", "favorite4", new DateTime(2022, 9, 5));
@@ -28,8 +26,7 @@ namespace DelimitedParser.Infrastructure.Tests
             sorted[4].Should().BeEquivalentTo(person1);
         }
 
-        [Fact]
-        [DisplayName("Sort method correctly sorts with DateOfBirthField fieldName")]
+        [Fact(DisplayName = "Sort method correctly sorts with DateOfBirthField fieldName")]
         public void Sort_HappyPath2()
         {
             var person1 = new Person("last1", "first2", "email3", "favorite4", new DateTime(2022, 9, 5));
@@ -50,8 +47,7 @@ namespace DelimitedParser.Infrastructure.Tests
             sorted[4].Should().BeEquivalentTo(person1);
         }
 
-        [Fact]
-        [DisplayName("Sort method correctly sorts with FavoriteColor fieldName")]
+        [Fact(DisplayName = "Sort method correctly sorts with FavoriteColor fieldName")]
         public void Sort_HappyPath3()
         {
             var person1 = new Person("last1", "first2", "email3", "red", new DateTime(2022, 9, 4));
@@ -80,8 +76,7 @@ namespace DelimitedParser.Infrastructure.Tests
             sorted[8].Should().BeEquivalentTo(person8);
         }
 
-        [Theory]
-        [DisplayName("Sort method throws ArgumentOutOfRangeException on invalid display name")]
+        [Theory(DisplayName = "Sort method throws ArgumentOutOfRangeException on invalid display name")]
         [InlineData(nameof(Person.FirstName))]
         [InlineData(nameof(Person.Email))]
         [InlineData(null)]

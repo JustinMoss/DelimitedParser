@@ -1,12 +1,10 @@
 ﻿using FluentAssertions;
-using System.ComponentModel;
 
 namespace DelimitedParser.Infrastructure.Tests
 {
     public class UtilitiesTests
     {
-        [Theory]
-        [DisplayName("GetDelimiter method correctly returns delimiter")]
+        [Theory(DisplayName = "GetDelimiter method correctly returns delimiter")]
         [InlineData(null, " ")]
         [InlineData("", " ")]
         [InlineData("some thing here", " ")]

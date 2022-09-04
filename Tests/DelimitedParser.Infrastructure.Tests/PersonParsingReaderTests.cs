@@ -1,14 +1,12 @@
 ﻿using DelimitedParser.Domain;
 using FluentAssertions;
 using Moq;
-using System.ComponentModel;
 
 namespace DelimitedParser.Infrastructure.Tests
 {
     public class PersonParsingReaderTests
     {
-        [Fact()]
-        [DisplayName("Parse method correctly reads and parses from a text reader")]
+        [Fact(DisplayName = "Parse method correctly reads and parses from a text reader")]
         public void Parse_HappyPath1()
         {
             var recordCount = 0;

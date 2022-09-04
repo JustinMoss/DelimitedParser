@@ -6,7 +6,6 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Moq;
 using Newtonsoft.Json;
-using System.ComponentModel;
 
 namespace DelimitedParser.Api.Tests
 {
@@ -14,8 +13,7 @@ namespace DelimitedParser.Api.Tests
     // types are made public instead of internal. https://github.com/dotnet/aspnetcore/pull/40704
     public class PersonRecordApiTests
     {
-        [Theory]
-        [DisplayName("GetSortedPersonListResponse method returns ok result with sorted person list")]
+        [Theory(DisplayName = "GetSortedPersonListResponse method returns ok result with sorted person list")]
         [InlineData("color")]
         [InlineData("birthdate")]
         [InlineData("name")]
@@ -47,8 +45,7 @@ namespace DelimitedParser.Api.Tests
             actualPeople.Should().BeEquivalentTo(sortedPeople);
         }
 
-        [Theory]
-        [DisplayName("GetSortedPersonListResponse method returns error result with correct message when sortfield is invalid")]
+        [Theory(DisplayName = "GetSortedPersonListResponse method returns error result with correct message when sortfield is invalid")]
         [InlineData("anything")]
         [InlineData(null)]
         public async Task GetSortedPersonListResponse_SadPath1s(string? sortField)
@@ -70,8 +67,7 @@ namespace DelimitedParser.Api.Tests
             ((string) response.detail).Should().Be($"'{sortField}' is not a valid search parameter.");
         }
 
-        [Fact]
-        [DisplayName("GetSortedPersonListResponse method returns error result with correct message when the person repo is empty")]
+        [Fact(DisplayName = "GetSortedPersonListResponse method returns error result with correct message when the person repo is empty")]
         public async Task GetSortedPersonListResponse_SadPath2()
         {
             var httpContext = CreateFakeHttpContext();
@@ -95,8 +91,7 @@ namespace DelimitedParser.Api.Tests
             ((string)response.detail).Should().Be("There were no people in the list to sort. Please try adding a person first.");
         }
 
-        [Fact]
-        [DisplayName("GetSortedPersonListResponse method returns error result with correct message when an exception occurs")]
+        [Fact(DisplayName = "GetSortedPersonListResponse method returns error result with correct message when an exception occurs")]
         public async Task GetSortedPersonListResponse_SadPath3()
         {
             var httpContext = CreateFakeHttpContext();
@@ -120,8 +115,7 @@ namespace DelimitedParser.Api.Tests
             ((string)response.detail).Should().Be("This is some random exception");
         }
 
-        [Fact]
-        [DisplayName("PostPersonRecords method returns ok result and calls AddBatch repo method with parsed people")]
+        [Fact(DisplayName = "PostPersonRecords method returns ok result and calls AddBatch repo method with parsed people")]
         public async Task PostPersonRecords_HappyPath()
         {
             var httpContext = CreateFakeHttpContext();
@@ -152,8 +146,7 @@ namespace DelimitedParser.Api.Tests
             repoPeople.Should().BeEquivalentTo(parserPeople);
         }
 
-        [Fact]
-        [DisplayName("PostPersonRecords method returns error result with correct error message when record is empty")]
+        [Fact(DisplayName = "PostPersonRecords method returns error result with correct error message when record is empty")]
         public async Task PostPersonRecords_SadPath1()
         {
             var httpContext = CreateFakeHttpContext();
@@ -173,8 +166,7 @@ namespace DelimitedParser.Api.Tests
             ((string)response.detail).Should().Be("Required field 'Record' is missing");
         }
 
-        [Fact]
-        [DisplayName("PostPersonRecords method returns error result with correct message when exception is thrown")]
+        [Fact(DisplayName = "PostPersonRecords method returns error result with correct message when exception is thrown")]
         public async Task PostPersonRecords_SadPath2()
         {
             var httpContext = CreateFakeHttpContext();

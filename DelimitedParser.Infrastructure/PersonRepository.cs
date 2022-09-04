@@ -17,7 +17,7 @@ namespace DelimitedParser.Infrastructure
             _people.Add(entity);
 
         /// <summary>
-        /// Stores an enumerable of Person objects
+        /// Stores an enumerable of Person objects.
         /// </summary>
         /// <param name="enumerable">The enumerable of Person objects to store</param>
         public void AddBatch(IEnumerable<Person> enumerable) =>

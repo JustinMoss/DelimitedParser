@@ -3,7 +3,7 @@
 namespace DelimitedParser.Infrastructure
 {
     /// <summary>
-    /// Defines an object that sorts enumerables of Person objects
+    /// Defines an object that sorts enumerables of Person objects.
     /// </summary>
     public class PersonSorter : ISorter<Person>
     {

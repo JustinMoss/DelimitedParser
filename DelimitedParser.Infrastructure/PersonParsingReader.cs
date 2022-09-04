@@ -3,7 +3,7 @@
 namespace DelimitedParser.Infrastructure
 {
     /// <summary>
-    /// Defines an object that parses files or text readers into an enumerable of Person object.
+    /// Defines an object that parses text readers into an enumerable of Person object.
     /// </summary>
     public class PersonParsingReader : IParsingReader<Person>
     {

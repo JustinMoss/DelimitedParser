@@ -1,7 +1,7 @@
 ﻿namespace DelimitedParser.Domain
 {
     /// <summary>
-    /// Defines an object that sorts enumerables of objects of type T
+    /// Defines an object that sorts enumerables of objects of type T.
     /// </summary>
     /// <typeparam name="T">The type of the objects to sort</typeparam>
     public interface ISorter<T>

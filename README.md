@@ -1,3 +1,6 @@
+# Notes
+  - For ease of testing the Api, use the included postman collection.
+
 # Assumptions
   - Step 1:
     - The input files will be a known configured location, not supplied by the user

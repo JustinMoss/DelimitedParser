@@ -1,0 +1,125 @@
+{
+	"info": {
+		"_postman_id": "7f1182a7-4c99-4b86-816d-38fe30c035e7",
+		"name": "Delimited Parser",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Last Name Sorted People",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4041/records/name",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4041",
+					"path": [
+						"records",
+						"name"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Date of Birth Sorted People",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4041/records/birthdate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4041",
+					"path": [
+						"records",
+						"birthdate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Favorite Color Sorted People",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4041/records/color",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4041",
+					"path": [
+						"records",
+						"color"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post A Person Record",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"record\": \"LAST | FIRST | EMAIL | COLOR | 1/1/1980\",\r\n    \"delimiter\": \"|\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4041/records",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4041",
+					"path": [
+						"records"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post Bulk Person Records",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"record\": \"Carpenter | Kara | Kara@notanemail.com | green | 5/20/1985\\r\\nCorn | Diane | Diane@notanemail.com | yellow | 12/15/1979\\r\\nAllen | Kate | Kate@notanemail.com | pink | 12/2/1987\\r\\nHocket | Mike | Mike@notanemail.com | green | 12/9/1986\\r\\nKaiser | Diane | DKaiser@notanemail.com | purple | 2/12/1965\\r\\nWhitney | Samantha | Samantha@notanemail.com | rainbow | 3/17/1994\\r\\nLesnoff | Vicky | Vicky@notanemail.com | yellow | 11/1/1982\\r\\nDemente | Beth | Beth@notanemail.com | red | 2/20/1993\\r\\nGonzalez | Eliza | Eliza@notanemail.com | purple | 5/21/1999\\r\\nErikson | Emilee | Emilee@notanemail.com | pink | 5/23/2002\\r\\nStates | Alex | Alex@notanemail.com | purple | 9/16/1991\\r\\nBaker | Chrissy | Chrissy@notanemail.com | orange | 2/5/1988\\r\\nCisco | Kathy | Kathy@notanemail.com | brown | 10/16/1959\\r\\nLloyd | Richie | Ritchie@notanemail.com | green | 11/29/1972\\r\\nSkinner | Luanne | Luanne@notanemail.com | red | 3/12/1960\",\r\n    \"delimiter\": \"|\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4041/records",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4041",
+					"path": [
+						"records"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -6,3 +6,5 @@
     - The files as a whole are related specifically to the Console, not the api
   - Step 2:  
     - The sorting endpoints will follow the same sorting logic as the Console app sorting logic
+    - The single data line is allowed to accept multiple people records
+    - The Post is allowed to be json, containing the data line, not just literally a single data line
